@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: #111;
+    color: #eee;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    max-width: 40%;
+    height: auto;
+    border-radius: 10px;
+    padding: 20px;
+    background: #fff;
+    color: #111;
+    text-align: center;
+}
+.container.copied{
+    animation: copyText 1s linear 1;  
+}
+.container.speaking{
+    animation: speaking .5s linear infinite;
+}
+
+.container .quote{
+    font-weight: 300;
+    letter-spacing: 0.4px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #888;
+}
+/* .container .quote::before{
+    content: '"';
+    font-size: 20px;
+    font-weight: 700;
+    margin-right:5px;
+}
+
+.container .quote::after{
+    content: '"';
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 5px;
+} */
+.container .author{
+    text-align: end;
+    font-weight: 500;
+    font-style: italic;
+    border-bottom: 1px solid #888;
+    padding-bottom: 10px;
+}
+.container .author span{
+    font-family: monospace;
+    font-weight: 500;
+}
+.btn-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.featureBtn{
+    display: flex;
+    gap: 10px;
+}
+.featureBtn span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    width: 28px;
+    font-size: 15px;
+    color: #fff;
+    background: #71aeff;
+    border-radius: 50%;
+    border: 1px solid #71aeff;
+    cursor: pointer;
+    transition: all .3s ease;
+
+}
+.nextQuoteBtn{
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    padding: 8px 16px;
+    background: #71aeff;
+    color: #fff;
+    font-weight: 500;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.nextQuoteBtn:hover,.featureBtn span:hover{
+    background: #3d74bc;
+}
+/*     Animation     */
+@keyframes copyText{
+    from{
+        box-shadow: 0px 0px 20px #71afffd2;
+    }to{
+        box-shadow: 0px 0px 20px #509d02d2;
+    }
+}
+@keyframes speaking{
+    from{
+        box-shadow: 0px 0px 30px #71afffd2;
+    }to{
+        box-shadow: 0px 0px 30px #509d02d2;
+    }
+}
+/*     Responsive Media Quieries     */
+@media only screen and (max-width:768px) {
+    .container{
+        max-width: 60%;
+    }
+    .container .quote{
+       font-size: 14px;
+    }
+    .container .author{
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width:425px) {
+    .container{
+        max-width: 80%;
+    }
+    .container .quote{
+        font-size: 12px;
+    }
+    .container .author{
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width:320px) {
+    .container{
+        max-width: 100%;
+    }
+    .btn-group{
+        gap: 10px;
+        flex-direction: column;
+    }
+}

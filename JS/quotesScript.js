@@ -7,6 +7,17 @@ container=document.querySelector('.container'),
 themeSwitcher=document.querySelector('.theme-switcher'),
 themeImage=document.querySelector('.theme-switcher img');
 
+//load theme from localstorage
+window.addEventListener('load',()=>{
+    const theme=localStorage.getItem("quotes-app-theme")
+    if(theme && theme==='dark'){
+        document.body.classList.add('dark')
+        themeImage.src='./img/sun.png'
+        themeImage.setAttribute('title','Light Mode')
+
+    }
+})
+
 //change Theme
 themeSwitcher.addEventListener('click',(e)=>{
     document.body.classList.toggle('dark');
@@ -14,11 +25,17 @@ themeSwitcher.addEventListener('click',(e)=>{
     if(document.body.classList.contains('dark')){
     themeImage.style.transform="rotate(90deg)";
     themeImage.src='./img/sun.png'
+    localStorage.setItem("quotes-app-theme","dark")
+    themeImage.setAttribute('title','Light Mode')
 }else{
-        themeImage.style.transform="rotate(0deg)";
-        themeImage.src='./img/moon.png'
+    localStorage.setItem("quotes-app-theme","light")
+    themeImage.style.transform="rotate(0deg)";
+    themeImage.src='./img/moon.png'
+    themeImage.setAttribute('title','Dark Mode')
     }
 })
+
+
 
 //Get New Quote
 async function getNewQuote(){

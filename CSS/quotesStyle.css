@@ -4,22 +4,38 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    transition: all .13s ease ;
+}
+:root{
+    --bg-color:#e2e2e2;
+    --text-color:#111;
+    --secondary:#fff;
+    --accent:#71aeff;
+    --accent-hover:#3d74bc;
+    --border-color:#888;
 }
 body{
-    background-color: #111;
-    color: #eee;
+    background-color: var(--bg-color);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+body.dark{
+    --bg-color:#111;
+    --text-color:#c3c3c3;
+    --secondary:#222;
+    --accent:#c0d3e6;
+    --accent-hover:#3d74bc;
+    --border-color:#4d4d4d;
 }
 .container{
     max-width: 40%;
     height: auto;
     border-radius: 10px;
     padding: 20px;
-    background: #fff;
-    color: #111;
+    background: var(--secondary);
+    color: var(--text-color);
     text-align: center;
 }
 .container.copied{
@@ -28,13 +44,26 @@ body{
 .container.speaking{
     animation: speaking .5s linear infinite;
 }
-
+.container .head-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container .head-section .theme-switcher{
+    padding: 4px 5px 0px;
+    pointer-events: all;
+    cursor: pointer;
+}
+.theme-switcher img{
+    pointer-events: inherit;
+    width: 15px;
+}
 .container .quote{
     font-weight: 300;
     letter-spacing: 0.4px;
     margin-top: 10px;
     padding-top: 10px;
-    border-top: 1px solid #888;
+    border-top: 1px solid var(--border-color);
 }
 /* .container .quote::before{
     content: '"';
@@ -53,7 +82,7 @@ body{
     text-align: end;
     font-weight: 500;
     font-style: italic;
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
 }
 .container .author span{
@@ -77,10 +106,10 @@ body{
     height: 28px;
     width: 28px;
     font-size: 15px;
-    color: #fff;
-    background: #71aeff;
+    color: var(--secondary);
+    background: var(--accent);
     border-radius: 50%;
-    border: 1px solid #71aeff;
+    border: 1px solid var(--accent);
     cursor: pointer;
     transition: all .3s ease;
 
@@ -90,15 +119,15 @@ body{
     border: 0;
     border-radius: 5px;
     padding: 8px 16px;
-    background: #71aeff;
-    color: #fff;
+    background: var(--accent);
+    color: var(--secondary);
     font-weight: 500;
     text-transform: capitalize;
     cursor: pointer;
     transition: all .3s ease;
 }
 .nextQuoteBtn:hover,.featureBtn span:hover{
-    background: #3d74bc;
+    background: var(--accent-hover);
 }
 /*     Animation     */
 @keyframes copyText{
